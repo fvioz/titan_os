@@ -7,6 +7,7 @@ gem "sqlite3", ">= 2.1"
 gem "puma", ">= 5.0"
 
 gem "bootsnap", require: false
+gem "graphql", '~> 2.5.11'
 gem "rack-cors"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 

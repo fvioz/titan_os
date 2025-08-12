@@ -116,8 +116,13 @@ GEM
     factory_bot_rails (6.5.0)
       factory_bot (~> 6.5)
       railties (>= 6.1.0)
+    fiber-storage (1.0.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    graphql (2.5.11)
+      base64
+      fiber-storage
+      logger
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     io-console (0.8.1)
@@ -372,6 +377,7 @@ DEPENDENCIES
   database_cleaner-active_record (~> 2.2.1)
   debug
   factory_bot_rails (~> 6.5.0)
+  graphql
   packs-rails (~> 0.0.5)
   puma (>= 5.0)
   rack-cors
