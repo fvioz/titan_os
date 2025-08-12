@@ -1,8 +1,7 @@
-Users::User.create!(
-  name: "test",
-  email: "test@test.com",
-  password: 'password'
-)
+Users::User.find_or_create_by!(email: "test@test.com") do |user|
+  user.name = "test"
+  user.password = 'password'
+end
 
 JSON.parse(File.read(Rails.root.join("db", "seeds", "streams_data.json"))).each do |type, contents|
   puts "Seeding #{type}..."
