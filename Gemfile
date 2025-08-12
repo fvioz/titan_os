@@ -8,8 +8,12 @@ gem "puma", ">= 5.0"
 
 gem "bootsnap", require: false
 gem "graphql", '~> 2.5.11'
-gem "rack-cors"
+gem "rack-cors", '~> 3.0.0'
 gem "tzinfo-data", platforms: %i[ windows jruby ]
+
+group :development do
+  gem 'graphiql-rails', '~> 1.10.5'
+end
 
 group :development, :test do
   gem "brakeman", require: false
