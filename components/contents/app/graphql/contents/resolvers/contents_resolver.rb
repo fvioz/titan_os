@@ -1,5 +1,3 @@
-# app/graphql/resolvers/post_resolver.rb
-
 module Contents
   module Resolvers
     class ContentsResolver < ::Resolvers::BaseResolver

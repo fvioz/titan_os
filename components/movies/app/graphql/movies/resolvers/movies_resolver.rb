@@ -1,5 +1,3 @@
-# app/graphql/resolvers/post_resolver.rb
-
 module Movies
   module Resolvers
     class MoviesResolver < ::Resolvers::BaseResolver
