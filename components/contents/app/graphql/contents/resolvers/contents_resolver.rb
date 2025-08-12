@@ -5,7 +5,6 @@ module Contents
 
       type [ Types::ContentType ], null: false
 
-
       def resolve
         Content.all
       end
