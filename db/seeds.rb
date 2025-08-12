@@ -18,10 +18,20 @@ JSON.parse(File.read(Rails.root.join("db", "seeds", "streams_data.json"))).each 
       next
     end
 
-    model.create!(
-      original_title: content["original_title"],
-      year: content["year"],
-      duration_in_seconds: content["duration_in_seconds"],
-    )
+    object = model.find_or_create_by!(original_title: content["original_title"]) do |obj|
+      obj.year = content["year"]
+      obj.duration_in_seconds = content["duration_in_seconds"]
+    end
+
+    if content["type"] != "tv_show"
+      puts "Seeding #{content["type"]} availability for #{object.original_title}..."
+
+      content["availabilities"].each do |availability|
+        object.availabilities.find_or_create_by!(
+          app: Apps::App.find_or_create_by!(name: availability["app"]),
+          market: availability["market"]
+        )
+      end
+    end
   end
 end
