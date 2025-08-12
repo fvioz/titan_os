@@ -19,12 +19,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_12_161331) do
   end
 
   create_table "availabilities", force: :cascade do |t|
-    t.string "type"
     t.integer "app_id", null: false
+    t.string "contentable_type", null: false
+    t.integer "contentable_id", null: false
     t.string "market"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["app_id"], name: "index_availabilities_on_app_id"
+    t.index ["contentable_type", "contentable_id"], name: "index_availabilities_on_contentable"
+    t.index ["market"], name: "index_availabilities_on_market"
   end
 
   create_table "contents", force: :cascade do |t|
