@@ -9,15 +9,15 @@ JSON.parse(File.read(Rails.root.join("db", "seeds", "streams_data.json"))).each 
 
   contents.each do |content|
     model = case content["type"]
-            when "movie"
-              Movies::Movie
-            when "tv_show"
-              TvShows::TvShow
-            when "channel"
-              Channels::Channel
-            else
-              next
-            end
+    when "movie"
+      Movies::Movie
+    when "tv_show"
+      TvShows::TvShow
+    when "channel"
+      Channels::Channel
+    else
+      next
+    end
 
     model.create!(
       original_title: content["original_title"],
