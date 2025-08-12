@@ -1,4 +1,4 @@
 FactoryBot.define do
-  factory :movie, parent: :content do
+  factory :movie, parent: :content, class: Movies::Movie do
   end
 end
